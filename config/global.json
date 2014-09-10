@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "massive-tracker"
+        }, 
+        "massive-tracker": {
+            "applicationId": "nscyLFNtiKcHii5y3gly7g9EXERaljN41fQEQA40", 
+            "masterKey": "mlX1HzmxyTryz3fU9yjvPvMWD4VegSxtvO0XB0cZ"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.0"
+    }
+}
