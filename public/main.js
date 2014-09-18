@@ -3,8 +3,8 @@ Parse.initialize('nscyLFNtiKcHii5y3gly7g9EXERaljN41fQEQA40', 'S62ZcZ1aPbiPc44Sq1
 var Location = Parse.Object.extend("location"),
     query = new Parse.Query(Location),
     mapOptions = {
-        zoom: 3,
-        center: new google.maps.LatLng(0, -180),
+        zoom: 5,
+        center: new google.maps.LatLng(50.77815527465919, 7.03125),
         mapTypeId: google.maps.MapTypeId.TERRAIN
     },
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
