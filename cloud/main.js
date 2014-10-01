@@ -1,10 +1,6 @@
 var client = require('twilio')('ACc728a749974a87ed179b8a8af525965c', '1224720c600ba86ace438968cb887257');
  
-function sendLocationRequest(request, response, status) {
-
-    if(status) {
-        console.log(status);
-    }
+function sendLocationRequest(request, status) {
 
     client.sendSms({
         to:'+447593117448', 
@@ -12,19 +8,10 @@ function sendLocationRequest(request, response, status) {
         body: 'fix050s002n123456'
       }, function(err, responseData) { 
         if (err) {
-            console.log(err);
-
-            if(response) {
-                response.error();
-            }
+            status.error(err);
         } else { 
-            
-            console.log(responseData.from); 
-            console.log(responseData.body);
-
-            if(response) {
-                response.success();
-            }
+            console.log('Success response: ' + responseData.body); 
+            status.success('Ping sent to device successfully.');
         }
       }
     );
@@ -32,12 +19,7 @@ function sendLocationRequest(request, response, status) {
 
 
 Parse.Cloud.job("pingLocation", function(request, status) {
-    sendLocationRequest(request, null, status);
-});
-
-
-Parse.Cloud.define('sendSMS', function(request, response) {
-    sendLocationRequest(request, response);
+    sendLocationRequest(request, status);
 });
 
 Parse.Cloud.define('receiveSMS', function(request, response) {
